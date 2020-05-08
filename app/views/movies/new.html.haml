@@ -1,0 +1,7 @@
+.wrapperform
+  = form_for [@movies] do |f|
+    .form
+      = f.text_field :title, class: 'form__title', placeholder: 'タイトル'
+      = f.text_field :note, class: 'form__note', placeholder: 'メモ'
+      = f.text_field :move, class: 'form__note', placeholder: '動画のURL'
+    = f.submit 'Send'
