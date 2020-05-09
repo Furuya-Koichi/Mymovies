@@ -1,14 +1,13 @@
 .wrappermoviezone
-  .moviezone
-    .moviezonecontents
-      .moviezonecontents__movie
-      .moviezonecontents__title
-        筋トレ
-    .moviezonecontents
-      .moviezonecontents__movie
-      .moviezonecontents__title
-        心理学
-    .moviezonecontents
-      .moviezonecontents__movie
-      .moviezonecontents__title
-        料理
+  .moviezoneupper
+    .moviezone__categoryname
+      カテゴリー
+    .moviezoneupper__paginate
+      = paginate(@movies)
+  .moviezonebottom
+    - @movies.each do |movie|
+      .moviezonebottomcontents
+        .moviezonebottomcontents__movie
+          = movie.move
+        .moviezonebootmcontents__title
+          = movie.title
