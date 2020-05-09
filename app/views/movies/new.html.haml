@@ -1,7 +1,26 @@
+= render './share/header'
 .wrapperform
   = form_for [@movies] do |f|
     .form
-      = f.text_field :title, class: 'form__title', placeholder: 'タイトル'
-      = f.text_field :note, class: 'form__note', placeholder: 'メモ'
-      = f.text_field :move, class: 'form__note', placeholder: '動画のURL'
-    = f.submit 'Send'
+      .form__title
+        動画の追加
+      .form__zone
+      = f.text_field :title, class: 'title', placeholder: 'タイトル'
+      = f.text_field :note, class: 'note', placeholder: 'メモ'
+      = f.text_field :move, class: 'move', placeholder: '動画のURL'
+      .form__submit
+        = f.submit 'Send'
+    .formfooter
+      .wrapperfooter
+        .footercontents
+          .footercontents__home
+            %i.fa.fa-home 
+            = link_to "ホーム", root_path
+          .footercontents__search
+            %i.fa.fa-search
+            = link_to "検索"
+          .footercontents__mypage
+            %i.fa.fa-user
+            = link_to "マイページ"
+
+    
