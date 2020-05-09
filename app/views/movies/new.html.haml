@@ -5,11 +5,24 @@
       .form__title
         動画の追加
       .form__zone
-      = f.text_field :title, class: 'title', placeholder: 'タイトル'
-      = f.text_field :note, class: 'note', placeholder: 'メモ'
-      = f.text_field :move, class: 'move', placeholder: '動画のURL'
+        .title
+          %br
+            %a 動画のタイトル
+          = f.text_field :title, placeholder: 'タイトル'
+        .note
+          %br
+            動画のメモ
+          = f.text_field :note, placeholder: 'メモ'
+        .move
+          %br
+            動画のURL
+          = f.text_field :move, placeholder: '動画のURL'
+        .hash
+          %br
+            ＃ハッシュタグ
+          = f.text_field :move, placeholder: '＃ハッシュタグ'
       .form__submit
-        = f.submit 'Send'
+        = f.submit '動画を追加'
     .formfooter
       .wrapperfooter
         .footercontents
