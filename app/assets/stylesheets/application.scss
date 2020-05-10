@@ -1,7 +1,10 @@
 @import "reset";
+@import "config/colors";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "devise/registration.sass";
 @import "header";
 @import "moviezone";
 @import "postmovie";
 @import "footer";
+@import "modules/flash";

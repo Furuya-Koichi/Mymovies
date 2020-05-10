@@ -7,10 +7,10 @@ class MoviesController < ApplicationController
   def new
     @movies = Movie.new
   end
-
+  
   def create
     Movie.create (movie_params)
-    
+    redirect_to root_path
   end
 
   private

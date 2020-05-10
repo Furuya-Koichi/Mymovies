@@ -56,3 +56,5 @@ gem 'haml-rails'
 gem "font-awesome-sass"
 #ページネーション
 gem 'kaminari'
+#ユーザー管理
+gem 'devise'
