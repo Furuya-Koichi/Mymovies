@@ -1,0 +1,6 @@
+.searchwrapper
+  .searchzone
+    .searchzone__input
+      = form_tag(search_posts_path,:method => 'get') do
+        = text_field_tag :keyword, "", placeholder: "キーワード検索", class: "search-input" 
+        = submit_tag '検索', class: "search-submit" 

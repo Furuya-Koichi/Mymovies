@@ -33,7 +33,9 @@ class MoviesController < ApplicationController
     @movies = Movie.find(params[:id])
   end
 
-
+  def search
+    @movies = Movie.search(params[:keyword])
+  end
 
   private
   def movie_params
