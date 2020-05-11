@@ -1,0 +1,10 @@
+= render './share/header'
+.moviezonedetail
+  .moviezonedetailcontents
+    .moviezonedetailcontents__movie
+      = @movies.move
+    .moviezonedetailcontents__title
+      = @movies.title
+  .moviezonedetailnote
+    = @movies.note
+= render './share/footer'
