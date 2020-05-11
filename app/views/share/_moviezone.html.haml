@@ -11,3 +11,4 @@
           = movie.move
         .moviezonebootmcontents__title
           = movie.title
+          = link_to '削除', "/movies/#{movie.id}", method: :delete
