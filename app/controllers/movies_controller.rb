@@ -19,6 +19,17 @@ class MoviesController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @movies = Movie.find(params[:id])
+  end
+
+  def update
+    movies = Movie.find(params[:id])
+    movies.update(movie_params)
+    redirect_to root_path
+  end
+
+
   private
   def movie_params
     params.require(:movie).permit(:title, :move, :note)

@@ -1,0 +1,38 @@
+= render './share/header'
+.wrapperform
+  = form_for [@movies] do |f|
+    .form
+      .form__title
+        %i.fa.fa-video
+        動画の編集
+      .form__zone
+        .title
+          %br
+            %a 動画のタイトル
+          = f.text_field :title, placeholder: 'タイトル'
+        .note
+          %br
+            動画のメモ
+          = f.text_field :note, placeholder: 'メモ'
+        .move
+          %br
+            動画のURL
+          = f.text_field :move, placeholder: '動画のURL'
+        .hash
+          %br
+            ＃ハッシュタグ
+          = f.text_field :move, placeholder: '＃ハッシュタグ'
+      .form__submit
+        = f.submit '動画を編集'
+    .formfooter
+      .wrapperfooter
+        .footercontents
+          .footercontents__home
+            %i.fa.fa-home 
+            = link_to "ホーム", root_path
+          .footercontents__search
+            %i.fa.fa-search
+            = link_to "検索"
+          .footercontents__mypage
+            %i.fa.fa-user
+            = link_to "マイページ"
