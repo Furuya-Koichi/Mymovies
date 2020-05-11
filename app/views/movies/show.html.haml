@@ -1,0 +1,11 @@
+= render './share/header'
+.moviezonebottom
+  .moviezonebottomcontents
+    .moviezonebottomcontents__movie
+      = @movies.move
+    .moviezonebootmcontents__title
+      = @movies.title
+      = link_to '削除', "/movies/#{@movies.id}", method: :delete
+      = link_to '編集', "/movies/#{@movies.id}/edit", method: :get
+      = link_to '詳細', "/movies/#{@movies.id}", method: :get
+= render './share/footer'

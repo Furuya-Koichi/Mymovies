@@ -13,3 +13,4 @@
           = movie.title
           = link_to '削除', "/movies/#{movie.id}", method: :delete
           = link_to '編集', "/movies/#{movie.id}/edit", method: :get
+          = link_to '詳細', "/movies/#{movie.id}", method: :get
