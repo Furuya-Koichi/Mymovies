@@ -5,10 +5,14 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to root_path
+      redirect_to "/users/#{current_user.id}"
     else
       render :edit
     end
+  end
+
+  def show
+    @users = User.find(params[:id])
   end
 
   private

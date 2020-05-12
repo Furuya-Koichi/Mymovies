@@ -1,0 +1,35 @@
+= render './share/header'
+.mypagewrapper
+  .mypagecontents
+    .mypagecontents__upper
+      .mypagecontents__upper--username
+        = @users.name
+        のユーザーページ
+      .mypagecontents__upper--email
+        = @users.email
+    .mypagecontents__bottom
+      .mypagecontents__bottom--edit
+        %i.fa.fa-edit
+        = link_to "ユーザー情報編集", edit_user_path
+      .mypagecontents__bottom--good
+        %i.fa.fa-star 
+        = link_to "お気に入り動画"
+    .mypagecontents__logoutbtn
+      %i.fa.fa-sign-out-alt
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+.formfooter
+  .wrapperfooter
+    .footercontents
+      .footercontents__home
+        %i.fa.fa-home 
+        = link_to "ホーム", root_path
+      .footercontents__post
+        %i.fa.fa-video
+        = link_to "動画を追加",  new_movie_path
+      .footercontents__search
+        %i.fa.fa-search
+        = link_to "検索"
+      .footercontents__search
+        %i.fa.fa-backward 
+        = link_to "戻る", :back
+
