@@ -12,4 +12,3 @@
     .footercontents__mypage
       %i.fa.fa-user
       = link_to "マイページ", "/users/#{current_user.id}", method: :get
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
