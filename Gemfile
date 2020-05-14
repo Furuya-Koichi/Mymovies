@@ -58,3 +58,5 @@ gem "font-awesome-sass"
 gem 'kaminari'
 #ユーザー管理
 gem 'devise'
+#デバック
+gem 'pry-rails'

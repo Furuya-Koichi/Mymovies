@@ -5,10 +5,10 @@
       = link_to "ホーム", root_path
     .footercontents__post
       %i.fa.fa-video
-      = link_to "動画を追加",  new_movie_path
+      = link_to "動画を追加", new_movie_path
     .footercontents__search
       %i.fa.fa-search
-      = link_to "検索"
+      = link_to "検索", movies_search_path, method: :get
     .footercontents__mypage
       %i.fa.fa-user
       = link_to "マイページ", "/users/#{current_user.id}", method: :get
