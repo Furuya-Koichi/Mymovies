@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   root to: 'mains#index'
 
-  resources :movies do
-    collection do
-      get 'search'
+    resources :movies do
+      collection do
+        get 'search'
+      end
     end
-  end
   #検索ペーじ
   # get '/movie/movie_search', to: 'deliver_addresses#new'
   resources :users, only: [:edit, :update, :show]

@@ -34,8 +34,8 @@ class MoviesController < ApplicationController
   end
 
   def search
+    # binding.pry
     @movies = Movie.search(params[:keyword])
-    redirect_to root_path
   end
 
   private
