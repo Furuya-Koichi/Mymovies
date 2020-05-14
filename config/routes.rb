@@ -9,6 +9,6 @@ Rails.application.routes.draw do
       end
     end
   #検索ペーじ
-  # get '/movie/movie_search', to: 'deliver_addresses#new'
+  get '/movies_search', to: 'search#index', as:'movies_search'
   resources :users, only: [:edit, :update, :show]
 end
