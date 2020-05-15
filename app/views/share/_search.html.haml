@@ -3,4 +3,6 @@
     .searchzone__input
       = form_tag(search_movies_path,:method => 'get') do
         = text_field_tag :keyword, "", placeholder: "旅行先検索 例：沖縄", class: "search-input" 
-        = submit_tag '検索', class: "search-submit" 
+        .search__submit
+          %i.fa.fa-user
+            = submit_tag 'f26e' 
