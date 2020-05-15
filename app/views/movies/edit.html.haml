@@ -32,7 +32,7 @@
             = link_to "ホーム", root_path
           .footercontents__search
             %i.fa.fa-search
-            = link_to "検索"
+            = link_to "検索", movies_search_path, method: :get
           .footercontents__mypage
             %i.fa.fa-user
             = link_to "マイページ"

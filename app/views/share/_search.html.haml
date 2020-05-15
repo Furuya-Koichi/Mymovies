@@ -2,5 +2,7 @@
   .searchzone
     .searchzone__input
       = form_tag(search_movies_path,:method => 'get') do
-        = text_field_tag :keyword, "", placeholder: "旅行先検索 例：沖縄", class: "search-input" 
-        = submit_tag '検索', class: "search-submit" 
+        = text_field_tag :keyword, "", placeholder: "検索", class: "search-input" 
+        .search-submit
+          %i.fa.fa-search
+            = submit_tag '検索する' 
