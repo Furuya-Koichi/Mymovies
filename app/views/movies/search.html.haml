@@ -1,10 +1,28 @@
-.moviezonebottom
-  - @movies.each do |movie|
-    .moviezonebottomcontents
-      .moviezonebottomcontents__movie
-        = movie.move
-      .moviezonebootmcontents__title
-        = movie.title
-        = link_to '削除', "/movies/#{movie.id}", method: :delete
-        = link_to '編集', "/movies/#{movie.id}/edit", method: :get
-        = link_to '詳細', "/movies/#{movie.id}", method: :get
+= render './share/header'
+= render './share/search'
+.wrappermoviezone
+  .moviezonebottom
+    - @movies.each do |movie|
+      .moviezonebottomcontents
+        .moviezonebottomcontents__movie
+          = movie.move
+        .moviezonebootmcontents__title
+          = movie.title
+          = link_to '削除', "/movies/#{movie.id}", method: :delete
+          = link_to '編集', "/movies/#{movie.id}/edit", method: :get
+          = link_to '詳細', "/movies/#{movie.id}", method: :get
+.formfooter
+  .wrapperfooter
+    .footercontents
+      .footercontents__home
+        %i.fa.fa-home 
+        = link_to "ホーム", root_path
+      .footercontents__post
+        %i.fa.fa-video
+        = link_to "動画を追加", new_movie_path
+      .footercontents__mypage
+        %i.fa.fa-user
+        = link_to "マイページ", "/users/#{current_user.id}", method: :get
+      .footercontents__search
+        %i.fa.fa-backward 
+        = link_to "戻る", :back
