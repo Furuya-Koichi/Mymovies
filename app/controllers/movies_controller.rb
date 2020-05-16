@@ -12,6 +12,18 @@ class MoviesController < ApplicationController
   
   def create
     Movie.create (movie_params)
+    url = @movies.youtube_url
+    url = url.last(11)
+    @movies.youtube_url = url
+    respond_to do |format|
+      if @movies.save
+        format.html { redirect_to @movies, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @movies }
+      else
+        format.html { render :new }
+        format.json { render json: @post.movies, status: :unprocessable_entity }
+      end
+    end
     redirect_to root_path
   end
 
@@ -40,7 +52,7 @@ class MoviesController < ApplicationController
 
   private
   def movie_params
-    params.require(:movie).permit(:title, :move, :note)
+    params.require(:movie).permit(:title, :youtube_url, :note)
   end
 
   def set_movie
