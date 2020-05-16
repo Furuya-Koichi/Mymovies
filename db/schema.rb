@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200510011839) do
+ActiveRecord::Schema.define(version: 20200516063026) do
 
   create_table "movies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.string   "move"
-    t.text     "note",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "note",        limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "youtube_url"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
