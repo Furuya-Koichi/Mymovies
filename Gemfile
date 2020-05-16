@@ -60,3 +60,7 @@ gem 'kaminari'
 gem 'devise'
 #デバック
 gem 'pry-rails'
+#画像の保存
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'streamio-ffmpeg'
