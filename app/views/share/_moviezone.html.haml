@@ -8,7 +8,7 @@
     - @movies.each do |movie|
       .moviezonebottomcontents
         .moviezonebottomcontents__movie
-        %iframe.hero-movie{allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen:  "", frameborder: "0", src: "https://www.youtube.com/embed/#{movie.youtube_url}", size:"100x100"}
+          %iframe{allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen: "", frameborder: "0", height: "200", src: "https://www.youtube.com/embed/#{movie.youtube_url}", width: "400"}
         .moviezonebootmcontents__title
           = movie.title
           = link_to '削除', "/movies/#{movie.id}", method: :delete

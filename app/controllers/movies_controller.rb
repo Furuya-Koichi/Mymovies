@@ -11,19 +11,11 @@ class MoviesController < ApplicationController
   end
   
   def create
-    Movie.create (movie_params)
+    @movies = Movie.new (movie_params)
+    # binding.pry
     url = @movies.youtube_url
     url = url.last(11)
     @movies.youtube_url = url
-    respond_to do |format|
-      if @movies.save
-        format.html { redirect_to @movies, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @movies }
-      else
-        format.html { render :new }
-        format.json { render json: @post.movies, status: :unprocessable_entity }
-      end
-    end
     redirect_to root_path
   end
 
