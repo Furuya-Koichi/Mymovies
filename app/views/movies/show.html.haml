@@ -2,7 +2,7 @@
 .moviezonedetail
   .moviezonedetailcontents
     .moviezonedetailcontents__movie
-      = @movies.move
+      %iframe.hero-movie{allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen:  "", frameborder: "0", src: "https://www.youtube.com/embed/#{@movies.youtube_url}", size:"100x100"}
     .moviezonedetailcontents__title
       = @movies.title
   .moviezonedetailnote
