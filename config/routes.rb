@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
   root to: 'mains#index'
@@ -6,6 +7,10 @@ Rails.application.routes.draw do
     resources :movies do
       collection do
         get 'search'
+      end
+      
+      namespace :admin do
+        resources :movies, only: [:index, :new, :create, :show,  :edit, :destroy]
       end
     end
   #検索ペーじ

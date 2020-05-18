@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:edit, :show]
 
   def index
-    
+
   end
 
   def new
@@ -11,8 +11,8 @@ class MoviesController < ApplicationController
   end
   
   def create
-    @movies = Movie.new (movie_params)
     # binding.pry
+    @movies = Movie.create (movie_params)
     url = @movies.youtube_url
     url = url.last(11)
     @movies.youtube_url = url
