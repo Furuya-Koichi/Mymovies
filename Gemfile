@@ -64,3 +64,6 @@ gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'streamio-ffmpeg'
+# 管理者権限で使用
+gem 'cancancan'
+gem 'rails_admin', '~> 2.0.0.beta'
