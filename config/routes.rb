@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   root to: 'mains#index'
 
     resources :movies do
+      resource :bookmarks, only: %i[create destroy]
+      get :bookmarks, on: :collection
+
       collection do
         get 'search'
       end
