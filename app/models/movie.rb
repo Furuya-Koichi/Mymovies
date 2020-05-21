@@ -1,6 +1,6 @@
 class Movie < ApplicationRecord
 
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
 
   def self.search(search)

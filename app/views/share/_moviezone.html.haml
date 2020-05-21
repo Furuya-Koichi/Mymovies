@@ -11,6 +11,9 @@
           %iframe{allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen: "", frameborder: "0", height: "200", src: "https://www.youtube.com/embed/#{movie.youtube_url}", width: "400"}
         .moviezonebootmcontents__title
           = movie.title
-          = link_to '削除', "/movies/#{movie.id}", method: :delete
-          = link_to '編集', "/movies/#{movie.id}/edit", method: :get
+
+        %div{:style => "display: inline; float: right;"}
+          = link_to icon('fas', 'pen'), edit_movie_path(movie), id: :"button-edit-#{movie.id}"
+          = link_to icon('fas', 'trash-alt'), movie_path(movie), id: :"button-delete-#{movie.id}",method: :delete, data: { confirm: '削除してよろしいですか？' }
           = link_to '詳細', "/movies/#{movie.id}", method: :get
+          = link_to icon('fas', 'star'), movie_bookmarks_path(movie.id), method: :delete, id: :"js-bookmark-button-for-board-#{movie.id}"
