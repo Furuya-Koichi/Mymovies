@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+  get 'bookmarks/create'
+
+  get 'bookmarks/destroy'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
   root to: 'mains#index'
 
     resources :movies do
+      resource :bookmarks, only: %i[create destroy]
+      get :bookmarks, on: :collection
+
       collection do
         get 'search'
       end

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200518042903) do
+ActiveRecord::Schema.define(version: 20200521050701) do
+
+  create_table "bookmarks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_bookmarks_on_movie_id", using: :btree
+    t.index ["user_id", "movie_id"], name: "index_bookmarks_on_user_id_and_movie_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
+  end
 
   create_table "movies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -33,4 +43,6 @@ ActiveRecord::Schema.define(version: 20200518042903) do
     t.boolean  "admin",                  default: false
   end
 
+  add_foreign_key "bookmarks", "movies"
+  add_foreign_key "bookmarks", "users"
 end
