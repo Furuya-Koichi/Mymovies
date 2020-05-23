@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   
   def create
     # binding.pry
-    @movies = Movie.create (movie_params)
+    @movies = Movie.create(movie_params)
     url = @movies.youtube_url
     url = url.last(11)
     @movies.youtube_url = url
@@ -48,7 +48,7 @@ class MoviesController < ApplicationController
 
   private
   def movie_params
-    params.require(:movie).permit(:title, :youtube_url, :note)
+    params.require(:movie).permit(:title, :youtube_url, :note, :move)
   end
 
   def set_movie

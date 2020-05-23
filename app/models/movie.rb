@@ -1,6 +1,6 @@
 class Movie < ApplicationRecord
-
-  belongs_to :user, dependent: :destroy
+  # # validates :youtube_url, :title, presence: true
+  # belongs_to :user, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
 
   def self.search(search)
