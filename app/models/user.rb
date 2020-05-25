@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :movies, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  has_many :bookmark_movies, through: :bookmarks, source: :board
+  has_many :bookmark_movies, through: :bookmarks, source: :movie
 
   validates :name, presence: true, uniqueness: true
 end
