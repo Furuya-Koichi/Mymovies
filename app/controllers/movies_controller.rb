@@ -42,9 +42,9 @@ class MoviesController < ApplicationController
     @movies = Movie.search(params[:keyword])
   end
 
-  def bookmarks
-    @movies = current_user.bookmark_movies.includes(:user).recent
-  end
+  # def bookmarks
+  #   @movies = current_user.bookmark_movies.includes(:user).recent
+  # end
 
   private
   def movie_params

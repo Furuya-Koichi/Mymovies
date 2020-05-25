@@ -2,6 +2,8 @@ class Movie < ApplicationRecord
   # # validates :youtube_url, :title, presence: true
   # belongs_to :user, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :users, through: :bookmarks
+
 
   def self.search(search)
     return Movie.all unless search

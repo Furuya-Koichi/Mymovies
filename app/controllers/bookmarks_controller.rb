@@ -1,12 +1,28 @@
 class BookmarksController < ApplicationController
+
+  def index
+    @user = current_user
+    @bookmarks = Bookmark.where(user_id: @user.id).all
+  end
+
+  def show_clips
+    @movie = Movie.find(params[:id])
+    @bookmarks = Bookmark.where(movie_id: @movie.id).all
+  end
+  
   def create
-    bookmark = current_user.bookmarks.build(movie_id: params[:movie_id])
-    bookmark.save!
-    redirect_to root_path, success: t('.flash.bookmark')
+    @user_id = current_user.id
+    @movie_id = Event.find(params[:id]).id
+    @bookmark = Bookmark.new(movie_id: @movie_id, user_id: @user_id)
+      if @bookmark.save
+        redirect_to user_path(current_user)
+      end
   end
 
   def destroy
-    current_user.bookmarks.find_by(movie_id: params[:movie_id])
-    redirect_to root_path, success: t('.flash.not_bookmark')
+    @bookmark = Bookmark.find(params[:id])
+    if @bookmark.destroy
+      redirect_to user_path(current_user)
+    end
   end
 end

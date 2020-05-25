@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   root to: 'mains#index'
 
     resources :movies do
-      resource :bookmarks, only: %i[create destroy]
-      get :bookmarks, on: :collection
+      member do
+        post "add", to: "bookmarks#create"
+        get "show_bookmarks" => "bookmarks#show_bookmarks"
+      end
 
       collection do
         get 'search'
@@ -23,4 +25,5 @@ Rails.application.routes.draw do
   #検索ペーじ
   get '/movies_search', to: 'search#index', as:'movies_search'
   resources :users, only: [:edit, :update, :show]
+  resources :bookmarks, only: [:destroy, :index]
 end
