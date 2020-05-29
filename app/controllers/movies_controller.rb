@@ -40,6 +40,7 @@ class MoviesController < ApplicationController
   def search
     # binding.pry
     @movies = Movie.search(params[:keyword])
+    @movies = Movie.all.page(params[:page]).per(3).order("created_at DESC")
   end
 
   # def bookmarks

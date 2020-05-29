@@ -1,6 +1,8 @@
 = render './share/header'
 = render './share/search'
 .wrappermoviezone
+  .moviezoneupper__paginate
+    = paginate(@movies)
   .moviezonebottom
     - @movies.each do |movie|
       .moviezonebottomcontents
@@ -13,7 +15,7 @@
           = link_to icon('fas', 'pen'), edit_movie_path(movie), id: :"button-edit-#{movie.id}"
           = link_to icon('fas', 'trash-alt'), movie_path(movie), id: :"button-delete-#{movie.id}",method: :delete, data: { confirm: '削除してよろしいですか？' }
           = link_to icon('fas', 'video'), "/movies/#{movie.id}", method: :get
-          = link_to icon('fas', 'star'), movie_bookmarks_path(movie.id), method: :delete, id: :"js-bookmark-button-for-board-#{movie.id}"
+          -# = link_to icon('fas', 'star'), movie_bookmarks_path(movie.id), method: :delete, id: :"js-bookmark-button-for-board-#{movie.id}"
 .formfooter
   .wrapperfooter
     .footercontents
