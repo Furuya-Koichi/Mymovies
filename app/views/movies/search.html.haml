@@ -8,15 +8,16 @@
       .moviezonebottomcontents
         .moviezonebottomcontents__movie
           %iframe{allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen: "", frameborder: "0", height: "200", src: "https://www.youtube.com/embed/#{movie.youtube_url}", width: "400"}
-        .moviezonebootmcontents__date
+        .moviezonebottomcontents__menu
+          %div{:style => "display: inline; float: right;"}
+            = link_to icon('fas', 'pen'), edit_movie_path(movie), id: :"button-edit-#{movie.id}"
+            = link_to icon('fas', 'trash-alt'), movie_path(movie), id: :"button-delete-#{movie.id}",method: :delete, data: { confirm: '削除してよろしいですか？' }
+            = link_to icon('fas', 'video'), "/movies/#{movie.id}", method: :get
+            -# = link_to icon('fas', 'star'), movie_bookmarks_path(movie.id), method: :delete, id: :"js-bookmark-button-for-board-#{movie.id}"
+        .moviezonebottomcontents__date
           = movie.created_at.strftime("%Y-%m-%d")
-        .moviezonebootmcontents__title
+        .moviezonebottomcontents__title
           = movie.title
-        %div{:style => "display: inline; float: right;"}
-          = link_to icon('fas', 'pen'), edit_movie_path(movie), id: :"button-edit-#{movie.id}"
-          = link_to icon('fas', 'trash-alt'), movie_path(movie), id: :"button-delete-#{movie.id}",method: :delete, data: { confirm: '削除してよろしいですか？' }
-          = link_to icon('fas', 'video'), "/movies/#{movie.id}", method: :get
-          -# = link_to icon('fas', 'star'), movie_bookmarks_path(movie.id), method: :delete, id: :"js-bookmark-button-for-board-#{movie.id}"
 .formfooter
   .wrapperfooter
     .footercontents
