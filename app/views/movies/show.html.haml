@@ -2,6 +2,8 @@
 .moviezonedetail
   .moviezonedetailtitle
     = @movies.title
+  .moviezonedetaildate
+    = @movies.created_at.strftime("%Y-%m-%d")
   .moviezonedetailcontents
     .moviezonedetailcontents__movie
       %iframe.hero-movie{allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen:  "", frameborder: "0", src: "https://www.youtube.com/embed/#{@movies.youtube_url}", size:"100x100"}
